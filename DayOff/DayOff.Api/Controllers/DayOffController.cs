@@ -1,4 +1,5 @@
 ﻿using DayOff.Api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ namespace DayOff.Api.Controllers
             this.dayOffRequestService = dayOffRequestService;
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult RequestDayOff(DateTime from, DateTime to)
         {
